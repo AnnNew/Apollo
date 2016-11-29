@@ -1,0 +1,73 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Appointments</div>
+    <style>
+        .panel-heading  { color: steelblue; font-size: x-large}
+    </style>
+    <jhi-alert></jhi-alert>
+    <div><br/></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="appointment.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Appointment
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" >
+        <style>
+            table { background-color: white;}
+        </style>
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Appointment Start</span></th>
+                    <th><span>Appointment End</span></th>
+                    <th><span>User</span></th>
+                    <th><span>Doctor</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="appointment in vm.appointments track by appointment.id">
+                    <td><a ui-sref="appointment-detail({id:appointment.id})">{{appointment.id}}</a></td>
+                    <td>{{appointment.appointmentStart | date:'medium'}}</td>
+                    <td>{{appointment.appointmentEnd | date:'medium'}}</td>
+                    <td>
+                        {{appointment.user.login}}
+                    </td>
+                    <td>
+                        <a ui-sref="doctor-detail({id:appointment.doctor.id})">{{appointment.doctor.lastName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="appointment-detail({id:appointment.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="appointment.edit({id:appointment.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="appointment.delete({id:appointment.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

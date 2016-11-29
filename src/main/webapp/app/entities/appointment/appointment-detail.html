@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4><span>Appointment</span> {{vm.appointment.id}}</h4></div>
+    <style>
+        .panel-heading { color: steelblue; font-size: x-large}
+    </style>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Appointment Start</span></dt>
+        <dd>
+            <span>{{vm.appointment.appointmentStart | date:'medium'}}</span>
+        </dd>
+        <dt><span>Appointment End</span></dt>
+        <dd>
+            <span>{{vm.appointment.appointmentEnd | date:'medium'}}</span>
+        </dd>
+        <dt><span>User</span></dt>
+        <dd>
+            {{vm.appointment.user.login}}
+        </dd>
+        <dt><span>Doctor</span></dt>
+        <dd>
+            <a ui-sref="doctor-detail({id:vm.appointment.doctor.id})">{{vm.appointment.doctor.lastName}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

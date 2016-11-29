@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{email.confirmation.title}">Apollo appointment confirmation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="#{email.confirmation.greeting(${user.firstName + ' ' + user.lastName})}">
+    Dear
+</p>
+<p th:text="#{email.confirmation.text(${appointmentStart},${appointmentEnd})}">
+    Your appointment with Apollo clinic VA is confirmed.
+</p>
+
+<p>
+    <span th:text="#{email.confirmation.text1}">Regards, </span>
+    <br/>
+    <em th:text="#{email.signature}">Apollo clinic.</em>
+</p>
+</body>
+</html>

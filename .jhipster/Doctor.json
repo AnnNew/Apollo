@@ -1,0 +1,63 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "appointment",
+            "otherEntityName": "appointment",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "doctor"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "qualification",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "yearsOfExperience",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": "0"
+        },
+        {
+            "fieldName": "speciality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactNum",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "Gender",
+            "fieldValues": "MALE, FEMALE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160710082801",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "doctor",
+    "pagination": "no"
+}
